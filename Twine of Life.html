@@ -26,9 +26,9 @@ You are born in a poor family. with an annual household income of less than $52,
 
 [[Go to school-&gt;publicSchool]]</tw-passagedata><tw-passagedata pid="3" name="startMiddle" tags="" position="713,489" size="100,100">(set: $score to 30)
 You are born in a middle class family, with an annual household income of $100,000. You hardly ever worry about food, and although you still get scolded for sneaking a candy bar in the checkout line, you still get to choose your favorite cereal for breakfast. Your parents fight about money every once in a while, but you live a comfortable life nonetheless, and they even managed to build you a tire swing in your front yard. You save up some money through a lemonade stand for your favorite toy.
-[[Go to school-&gt;publicSchool]]</tw-passagedata><tw-passagedata pid="4" name="startRich" tags="" position="891,497" size="100,100">(set: $score to 60)
+[[Go to school-&gt;publicSchool]]</tw-passagedata><tw-passagedata pid="4" name="startRich" tags="" position="891,497" size="100,100">(set: $score to 100)
 You are born to a family that has been wealthy for many generations. You know what your parents do for work, and it calls for bragging rights in the playground. You have private piano and golfing lessons throughout the week, and a new nanny to teach you a new language every few months. Your parents are hardly ever home, but it’s okay because of the massive amount of high tech toys in your playroom, right?
-[[Go to school-&gt;privateSchool]]</tw-passagedata><tw-passagedata pid="5" name="publicSchool" tags="" position="562,658" size="100,100">You attend the local public school and in the leaking ceilings, yellowing walls, and lack of computers, you can tell that it isn’t funded as well as other schools. You make friends during your time here and your teachers are supportive, but the cycle seems almost impossible to escape. Your school day is tiring because you have to take care of your siblings at home, so your grades are average. You would love to join the soccer team after school, but you know your parents would have a hard time affording the costs. You coast through your time in school and begin to act out – it’s the only way to feel control of your own life.
+[[Go to school-&gt;privateSchool]]</tw-passagedata><tw-passagedata pid="5" name="publicSchool" tags="" position="558,682" size="100,100">You attend the local public school and in the leaking ceilings, yellowing walls, and lack of computers, you can tell that it isn’t funded as well as other schools. You make friends during your time here and your teachers are supportive, but the cycle seems almost impossible to escape. Your school day is tiring because you have to take care of your siblings at home, so your grades are average. You would love to join the soccer team after school, but you know your parents would have a hard time affording the costs. You coast through your time in school and begin to act out – it’s the only way to feel control of your own life.
 
 (if:$income_class is 1)[[[Continue-&gt;forcedJob]]]
 (if:$income_class is not 1)[[[Apply To College-&gt;collegeApps]]]
@@ -41,7 +41,6 @@ After a few months of hard work, you college decisions finally come back, and ev
 (if:$income_class is not 3)[You know your family isn&#39;t that rich, so you debate how much debt you are willing to go into for your degree]
 
 (if:$income_class is not 3)[[[Eh it&#39;s probably not worth it anyway-&gt;lowPayingJob]]]
-(if:$income_class is not 3)[[[Community college might be a better choice -&gt;communityCollege]]]
 (if:$income_class is 2)[[[College, here I come! -&gt;college]]]
 (if:$income_class is 3)[[[College, here I come! -&gt;collegeLifeRich]]]
 </tw-passagedata><tw-passagedata pid="9" name="lowPayingJob" tags="" position="439,944" size="100,100">(set: $score to ($score + 5))
@@ -50,52 +49,72 @@ You have been working at the same minimum wage job since high school and sometim
 [[Continue-&gt;Promotion opportunity]]</tw-passagedata><tw-passagedata pid="10" name="collegeLifeRich" tags="" position="1095,1087" size="100,100">Going to college without worrying about debts: “You are currently at college and you are having the time of your life! You are doing well in your classes and have found life-long friends during the process. When you graduate college, you find a job in a field that you are passionate about and you are able to earn a good salary that allows you to go on many vacations and buy a home. You feel very fulfilled in your career and are given promotions often.
 [[Continue-&gt;graduation]] 
 </tw-passagedata><tw-passagedata pid="11" name="diabetes" tags="" position="612,2248" size="100,100">You’ve noticed that you have been feeling more tired than normal recently. You attributed it to your work environment being more stressful, and so you ignored it for the past few months. Yesterday however, you tried to read a book to relax and suddenly noticed that your vision was too blurry to read the text. 
-[[Go to the hospital to get it checked out-&gt; diabetesHospital]]</tw-passagedata><tw-passagedata pid="12" name=" diabetesHospital" tags="" position="613,2414" size="100,100">At the hospital, the doctor draws some blood, runs some tests, then informs you that you have type 2 diabetes. 
+[[Go to the hospital to get it checked out-&gt; diabetesHospital]]</tw-passagedata><tw-passagedata pid="12" name=" diabetesHospital" tags="" position="611,2388" size="100,100">At the hospital, the doctor draws some blood, runs some tests, then informs you that you have type 2 diabetes. 
 (if:$income_class is not 3)[The sound of the word ‘diabetes’ scares you, but 2 hours later, you are even more terrified when you realize that insulin would cost you $500 per month, $500 that you cannot afford. You resign to taking out loans and spending your life savings to cover for insulin costs]
 (if:$income_class is not 3)[(set: $score to ($score -10 ))]
-(if:$income_class is not 3)[[[Continue-&gt;retirementDecision]]]
+(if:$income_class is not 3)[[[Continue-&gt;vacationDecision]]]
 (if:$income_class is 3)[Diabetes doesn’t scare you at all — your parents had it and their parents before them. They have always been able to afford it and it never occurred to you that it would be any different. You get your personal assistant to manage buying your insulin from the highest-quality source.]
 (if:$income_class is 3)[[[Donate to hospital-&gt;hospitalDonation]]]
-(if:$income_class is 3)[[[Donate to charity-&gt;charityDonation]]]</tw-passagedata><tw-passagedata pid="13" name="collegeLifeLoans" tags="" position="928,1108" size="100,100">You had to take out hundreds of thousands of dollars of government loans to pay for your college experience, but at least you can enjoy the experience without having to worry about money… for now...
+(if:$income_class is 3)[[[Donate to charity-&gt;charityDonation]]]</tw-passagedata><tw-passagedata pid="13" name="collegeLifeLoans" tags="" position="884,1100" size="100,100">You had to take out hundreds of thousands of dollars of government loans to pay for your college experience, but at least you can enjoy the experience without having to worry about money… for now...
 (set: $score to ($score - 10))
-[[Continue-&gt;graduation]] </tw-passagedata><tw-passagedata pid="14" name="Promotion opportunity" tags="" position="265,1058" size="100,100">
-[[Keep working-&gt;startBuisnessDecision]]
-[[Save up money and go back to school-&gt;collegeLate]]</tw-passagedata><tw-passagedata pid="15" name="collegeLifePTJob" tags="" position="756,1111" size="100,100">You want to enjoy college, but with 2 part-time jobs and a heavy course load, it doesn’t seem possible. You do okay in class and you’ve found a field you are passionate about, but you can’t take internships or research positions because you can’t afford it. Sometimes, you feel a twinge of pain knowing your classmates are out partying like how college students do. You don’t have a choice – if you don’t work then you can’t get your degree.
-[[Continue-&gt;graduation]] </tw-passagedata><tw-passagedata pid="16" name="communityCollege" tags="" position="628,1104" size="100,100">comminity college
-[[Continue-&gt;graduation]] </tw-passagedata><tw-passagedata pid="17" name="college" tags="" position="859,957" size="100,100">A few months before you head off for college, you open your student accound to see how much financial aid you received. 
+[[Continue-&gt;graduation]] </tw-passagedata><tw-passagedata pid="14" name="Promotion opportunity" tags="" position="265,1058" size="100,100">(set: $score to ($score + 10))
+One day, the boss of your boss tells you to come to his office after your shift. You are pretty nervous, since you&#39;ve barely talked to him before and are not sure if you&#39;re in trouble.
+However, you soon discover that he asked to meet because your current boss is switching companies, and that you&#39;ve done such a good job over the past 2 years that he recommended you to take over his position.
+You eagerly accept the promotion, partly for the money, partly because you are tired of the same work over and over again and just want something new.
+[[Nice job, me!-&gt;startBuisnessDecision]]
+</tw-passagedata><tw-passagedata pid="15" name="collegeLifePTJob" tags="" position="722,1095" size="100,100">You want to enjoy college, but with 2 part-time jobs and a heavy course load, it doesn’t seem possible. You do okay in class and you’ve found a field you are passionate about, but you can’t take internships or research positions because you can’t afford it. Sometimes, you feel a twinge of pain knowing your classmates are out partying like how college students do. You don’t have a choice – if you don’t work then you can’t get your degree.
+[[Continue-&gt;graduation]] </tw-passagedata><tw-passagedata pid="16" name="college" tags="" position="859,957" size="100,100">A few months before you head off for college, you open your student accound to see how much financial aid you received. 
 
 You realize that it isn&#39;t enough.
 
 What now?
 [[Get a part time job-&gt;collegeLifePTJob]] 
-[[Just take out loans-&gt;collegeLifeLoans]] </tw-passagedata><tw-passagedata pid="18" name="startBuisness" tags="" position="342,1370" size="100,100">(set: $buisnessSuccess to (random:1,2))
-(if:$buisnessSuccess is 1)[[Continue-&gt;buisnessSuccess]]
-(if:$buisnessSuccess is 2)[[Continue-&gt;buisnessFail]]</tw-passagedata><tw-passagedata pid="19" name="collegeLate" tags="" position="499,1104" size="100,100">Phew, after all of that hard work you finally saved up enough to go to a 4-year university! Although you’re a few years older than your peers, you are studying what you’re passionate about and are able to start internships and network without worrying about student debt.
+[[Just take out loans-&gt;collegeLifeLoans]] </tw-passagedata><tw-passagedata pid="17" name="startBuisness" tags="" position="342,1370" size="100,100">You phone some friends about a new buisness idea that you&#39;ve been having. They all agree that its a good idea and that you should go for it, and 2 of them even agree to pool funds with you and work on the buisness together.
+
+You quickly realize that you have no experience with many aspects of running a buisness. Your friends help a bit, but they aren&#39;t that well-versed either. 
+You start meticulously reading books and articles to fill in the gaps in your knowledge, though you wonder in the back of your mind if it will be enough.
+
+After all, 90% of all startups fail.
+
+(set: $buisnessSuccess to (random:1,2))
+(if:$buisnessSuccess is 1)[[[Only time will tell...-&gt;buisnessSuccess]]]
+(if:$buisnessSuccess is 2)[[[Only time will tell...-&gt;buisnessFail]]]</tw-passagedata><tw-passagedata pid="18" name="collegeLate" tags="" position="573,1184" size="100,100">Phew, after all of that hard work you finally saved up enough to go to a 4-year university! You know that you&#39;re a few years older than your peers, and this feeling intensifies whenever someone says some new slang that you don&#39;t recognize, or when you have to turn down party offers since you can&#39;t party as hard as you could 10 years ago. 
+However, you are perfectly happy with your decision, since you are studying what you’re passionate about and are able to start internships and network without worrying about student debt.
 (set: $score to ($score + 10))
-[[Cotinue-&gt;graduation]]</tw-passagedata><tw-passagedata pid="20" name="graduation" tags="" position="748,1267" size="100,100">The 4 years were hard work, but you have finally graduated.
+[[Cotinue-&gt;graduation]]</tw-passagedata><tw-passagedata pid="19" name="graduation" tags="" position="748,1267" size="100,100">The 4 years were hard work, but you have finally graduated.
 Now to get a job...
 [[Try to start your own buisness -&gt;startBuisness]] 
 (if:$income_class is not 3)[[[Get those job applications started-&gt;officeJob]]]
 (if:$income_class is 3)[You heard that you dad&#39;s company has some spots open]
-(if:$income_class is 3)[[[Ask your dad for a job -&gt;jobRich]]]</tw-passagedata><tw-passagedata pid="21" name="startBuisnessDecision" tags="" position="380,1227" size="100,100">
-[[Start a buisness-&gt;startBuisness]]
-[[keep Working-&gt;marriage]]</tw-passagedata><tw-passagedata pid="22" name="buisnessSuccess" tags="" position="272,1514" size="100,100">Congratulations, your business has been a success! Business is booming and you are slowly becoming the millionaire you always dreamed of
+(if:$income_class is 3)[[[Ask your dad for a job -&gt;jobRich]]]</tw-passagedata><tw-passagedata pid="20" name="startBuisnessDecision" tags="" position="358,1191" size="100,100">After working at your new position for a while, you have saved up a good chunk of money. 
+You&#39;ve been thinking of what your next step in life is going to be..
+
+
+[[Start a buisness!-&gt;startBuisness]]
+It&#39;ll be pretty nice never having to be bossed around ever again right?
+
+
+You&#39;ve always slightly regretted not being able to go to college like some of your friends from high school, but are you going to fit in with people 10 years younger than you?
+[[Who cares? Better late than never!-&gt;collegeLate]]
+
+
+[[Just keep working-&gt;marriage]]</tw-passagedata><tw-passagedata pid="21" name="buisnessSuccess" tags="" position="272,1514" size="100,100">Congratulations, you were part of that 10%! Business is booming and you are slowly becoming the millionaire you always dreamed of. 
 (set: $score to $score + 20)
-[[Continue-&gt;marriage]] </tw-passagedata><tw-passagedata pid="23" name="buisnessFail" tags="" position="478,1482" size="100,100">(set: $score to $score - 20)
-Unfortunately, after years of hard work, your business has failed. You poured your life savings into this business but because of poor financial advice, you no longer afford to own the business. You declare bankruptcy.
-[[Continue-&gt;marriage]] </tw-passagedata><tw-passagedata pid="24" name="officeJob" tags="" position="683,1474" size="100,100">You have to quickly find a job in a field that you aren’t particularly passionate about to pay for college, but you are still able to afford vacations, insurance, and other necessary expenses.
+[[Continue-&gt;marriage]] </tw-passagedata><tw-passagedata pid="22" name="buisnessFail" tags="" position="478,1482" size="100,100">(set: $score to $score - 20)
+Unfortunately, despite your best efforts, your business has failed. You poured your life savings into this business, but as a result of some poor financial advice that you read, you no longer afford to own the business. You declare bankruptcy.
+[[Continue-&gt;marriage]] </tw-passagedata><tw-passagedata pid="23" name="officeJob" tags="" position="683,1474" size="100,100">You have to quickly find a job in a field that you aren’t particularly passionate about to pay for college, but you are still able to afford vacations, insurance, and other necessary expenses.
 This office job pays well, but you soon feel stuck in the position while seeing other friends accomplishing their passions. Your parents are proud of you, but family dinners are tense whenever you bring up changing jobs to pursue your dreams.
 (set: $score to ($score + 10))
-[[Continue-&gt;marriage]] </tw-passagedata><tw-passagedata pid="25" name="jobRich" tags="" position="946,1303" size="100,100">You find a job in a field that you are passionate about (thanks to your family connections) and you are able to earn a good salary that allows you to go on many vacations and buy a home. You feel very fulfilled in your career and are given promotions often.
+[[Continue-&gt;marriage]] </tw-passagedata><tw-passagedata pid="24" name="jobRich" tags="" position="946,1303" size="100,100">You find a job in a field that you are passionate about (thanks to your family connections) and you are able to earn a good salary that allows you to go on many vacations and buy a home. You feel very fulfilled in your career and are given promotions often.
 (set: $score to ($score + 10))
-[[Continue-&gt;jobRicher]]</tw-passagedata><tw-passagedata pid="26" name="jobRicher" tags="" position="937,1498" size="100,100">It is expected for you to follow in your parents’ footsteps in their company. You are instantly promoted to Chief Financial Officer (CFO) within the company even though other workers in the company were more qualified. You jet-set around the world and you split your time between your penthouse overlooking Central Park and your vast Italian villa along the Amalfi Coast. Your career is dominated by hand-shaking and maintaining relationships with important people – you don’t truly remember the last time you sat down and actually did something. You live a lavish life and others envy you.
-[[Continue-&gt;marriage]] </tw-passagedata><tw-passagedata pid="27" name="marriage" tags="" position="633,1676" size="100,100">Find someone and get married. Choose from the following partners.
+[[Continue-&gt;jobRicher]]</tw-passagedata><tw-passagedata pid="25" name="jobRicher" tags="" position="937,1498" size="100,100">It is expected for you to follow in your parents’ footsteps in their company. You are instantly promoted to Chief Financial Officer (CFO) within the company even though other workers in the company were more qualified. You jet-set around the world and you split your time between your penthouse overlooking Central Park and your vast Italian villa along the Amalfi Coast. Your career is dominated by hand-shaking and maintaining relationships with important people – you don’t truly remember the last time you sat down and actually did something. You live a lavish life and others envy you.
+[[Continue-&gt;marriage]] </tw-passagedata><tw-passagedata pid="26" name="marriage" tags="" position="633,1676" size="100,100">Find someone and get married. Choose from the following partners.
 
 [[Very attractive partner comes from a family of wealth. They seem to have it all-&gt;partner1]]
 [[Practical partner, highly educated but is stubborn as a mule.-&gt;partner2]]
 [[You share the same interests and being with this person is comfortable. -&gt;partner3]]
-</tw-passagedata><tw-passagedata pid="28" name="childrenDecision" tags="" position="615,1988" size="100,100">[[Have children-&gt;children]] 
-[[Don&#39;t have children-&gt;noChildren]] </tw-passagedata><tw-passagedata pid="29" name="partner1" tags="" position="483,1826" size="100,100">(set: $marriageChoice to (random:1,2))
+</tw-passagedata><tw-passagedata pid="27" name="childrenDecision" tags="" position="615,1988" size="100,100">[[Have children-&gt;children]] 
+[[Don&#39;t have children-&gt;noChildren]] </tw-passagedata><tw-passagedata pid="28" name="partner1" tags="" position="483,1826" size="100,100">(set: $marriageChoice to (random:1,2))
 
 Your choice of your partner led to this....
 (if:$marriageChoice is 1)
@@ -109,7 +128,7 @@ Your choice of your partner led to this....
 	(set: $score to ($score + 10))
 ]
 
-[[Continue-&gt;childrenDecision]] </tw-passagedata><tw-passagedata pid="30" name="partner2" tags="" position="627,1823" size="100,100">(set: $marriageChoice to (random:1,2))
+[[Continue-&gt;childrenDecision]] </tw-passagedata><tw-passagedata pid="29" name="partner2" tags="" position="627,1823" size="100,100">(set: $marriageChoice to (random:1,2))
 
 Your choice of your partner led to this....
 (if:$marriageChoice is 1)
@@ -123,7 +142,7 @@ Your choice of your partner led to this....
 	(set: $score to ($score + 10))
 ]
 
-[[Continue-&gt;childrenDecision]] </tw-passagedata><tw-passagedata pid="31" name="partner3" tags="" position="781,1828" size="100,100">(set: $marriageChoice to (random:1,2))
+[[Continue-&gt;childrenDecision]] </tw-passagedata><tw-passagedata pid="30" name="partner3" tags="" position="781,1828" size="100,100">(set: $marriageChoice to (random:1,2))
 
 Your choice of your partner led to this....
 (if:$marriageChoice is 1)
@@ -137,17 +156,17 @@ Your choice of your partner led to this....
 	(set: $score to ($score + 10))
 ]
 
-[[Continue-&gt;childrenDecision]] </tw-passagedata><tw-passagedata pid="32" name="children" tags="" position="454,2113" size="100,100">(if:$income_class is not 3)[Congratulations, you now have a beautiful baby. You have been billed $10,000 from the hospital for your delivery, but it’s okay because you are growing a beautiful family. As your child grows up, so do their expenses, they weren’t lying when they said children were expensive]
+[[Continue-&gt;childrenDecision]] </tw-passagedata><tw-passagedata pid="31" name="children" tags="" position="454,2113" size="100,100">(if:$income_class is not 3)[Congratulations, you now have a beautiful baby. You have been billed $10,000 from the hospital for your delivery, but it’s okay because you are growing a beautiful family. As your child grows up, so do their expenses, they weren’t lying when they said children were expensive]
 (if:$income_class is not 3)[(set: $score to ($score - 10))]
 (if:$income_class is 3)[Congratulations, you now have a beautiful baby. Your premium health insurance covers the cost of your delivery and no expense is too high for your child. They always have the best toys and education money can buy]
-[[Continue-&gt;diabetes]] </tw-passagedata><tw-passagedata pid="33" name="noChildren" tags="" position="736,2121" size="100,100">(if:$income_class is not 3)[You have opted out of having children. You always dreamed of having a family, but you know that having children would have been too unaffordable. You live a comfortable life, but every so often, when you see friends forming their own family, you feel regret over your pragmatic decision.]
+[[Continue-&gt;diabetes]] </tw-passagedata><tw-passagedata pid="32" name="noChildren" tags="" position="736,2121" size="100,100">(if:$income_class is not 3)[You have opted out of having children. You always dreamed of having a family, but you know that having children would have been too unaffordable. You live a comfortable life, but every so often, when you see friends forming their own family, you feel regret over your pragmatic decision.]
 (if:$income_class is 3)[You have opted out of having children. Your jet-set life is not worth giving up for a spoiled child that would have spent up your yearly allowance for new shoes. You continue to travel across the world and live your life to its fullest. You take the money you would’ve put into children to invest in a bitcoin company – it takes off and you are a complete success!]
 (if:$income_class is 3)[(set: $score to ($score + 20))]
-[[Continue-&gt;diabetes]] </tw-passagedata><tw-passagedata pid="34" name="hospitalDonation" tags="" position="700,2548" size="100,100">You donate to the hospital that treats your diabetes and get a hospital wing named after your family.
+[[Continue-&gt;diabetes]] </tw-passagedata><tw-passagedata pid="33" name="hospitalDonation" tags="" position="699,2561" size="100,100">You donate to the hospital that treats your diabetes and get a hospital wing named after your family.
 (set: $score to ($score + 10 ))
-[[Continue-&gt;retirementDecision]] </tw-passagedata><tw-passagedata pid="35" name="charityDonation" tags="" position="830,2556" size="100,100">You start a charity to support people in need suffering from diabetes who can’t simply afford it like you.
+[[Continue-&gt;vacationDecision]] </tw-passagedata><tw-passagedata pid="34" name="charityDonation" tags="" position="845,2607" size="100,100">You start a charity to support people in need suffering from diabetes who can’t simply afford it like you.
 (set: $score to ($score + 10 ))
-[[Continue-&gt;retirementDecision]] </tw-passagedata><tw-passagedata pid="36" name="retirementDecision" tags="" position="575,2713" size="100,100">Retirement 
+[[Continue-&gt;vacationDecision]] </tw-passagedata><tw-passagedata pid="35" name="retirementDecision" tags="" position="573,2998" size="100,100">Retirement 
 (if: $income_class is not 3)
 [[[Retire early-&gt;lowMidRetireEarly]]
 [[Retire at 65-&gt;lowMidRetire65]]
@@ -156,18 +175,48 @@ Your choice of your partner led to this....
 (if:$income_class is  3)
 [[[Retire early-&gt;richRetireEarly]]
 [[Retire at 65-&gt;richRetire65]]
-]</tw-passagedata><tw-passagedata pid="37" name="endScreen" tags="" position="576,3123" size="100,100">You died 
-Your score is $score</tw-passagedata><tw-passagedata pid="38" name="lowMidRetireEarly" tags="" position="200,2863" size="100,100">(set: $score to ($score - 5 ))
+]</tw-passagedata><tw-passagedata pid="36" name="endScreen" tags="" position="575,3341" size="100,100">At 78 years old, you have died.
+
+(if: $income_class is 1)[
+(if:$score &gt; 29)[Congratulations! Your life score is $score. You started from the bottom, now you’re here! You had the odds stacked against you and persevered to make your mark on the world.]
+(if:$score &lt; 30)[Your life score is $score. You had the short end of the stick from the beginning, and unfortunately, never managed to turn it around. You passed just as you came in, without much.]
+]
+(if: $income_class is 2)[
+(if:$score &gt; 49)Congratulations! Your life score is $score. You started off a little rocky, but your life turned out exactly how you would’ve hoped. Little you would be so proud!]
+(if:$score &lt; 50)[Your life score is: $score. You didn’t start off with a silver spoon, and at the end of your life you could never achieve what little you dreamed of]
+](if: $income_class is 3)[
+(if:$score &gt; 49)[Congratulations! Your life score is $score. You were born into comfort and left in the best spot in the graveyard, paid for by your own hard work, and a little bit of help from your parents.]
+(if:$score &lt; 50)[Your life score is $score. You grew up with more than you needed, and ended up in a spot where you still needed more. Satisfaction is key to a successful lifestyle.]
+]
+(set: $score to 0)
+[[Play again as lower class-&gt;startPoor]] 
+[[Play again as middle class-&gt;startMiddle]] 
+[[Play again as upper class-&gt;startRich]] </tw-passagedata><tw-passagedata pid="37" name="lowMidRetireEarly" tags="" position="200,3163" size="100,100">(set: $score to ($score - 5 ))
 You have no savings to retire early.
-[[Continue-&gt;endScreen]] </tw-passagedata><tw-passagedata pid="39" name="lowMidRetire65" tags="" position="350,2863" size="100,100">You managed to save some money by the advice of your coworkers through your job. Retire comfortably.
+[[Continue-&gt;endScreen]] </tw-passagedata><tw-passagedata pid="38" name="lowMidRetire65" tags="" position="358,3152" size="100,100">You managed to save some money by the advice of your coworkers through your job. Retire comfortably.
 (set: $score to ($score + 5 ))
-[[Continue-&gt;endScreen]] </tw-passagedata><tw-passagedata pid="40" name="lowMidKeepWorking" tags="" position="500,2870" size="100,100">Your hard work will pay off!
+[[Continue-&gt;endScreen]] </tw-passagedata><tw-passagedata pid="39" name="lowMidKeepWorking" tags="" position="514,3151" size="100,100">Your hard work will pay off!
 (set: $score to ($score + 10 ))
-[[Continue-&gt;endScreen]] </tw-passagedata><tw-passagedata pid="41" name="richRetireEarly" tags="" position="650,2871" size="100,100">You have been set up to retire early for a while now, and you see no value in continuing to work. Your investments will make money for you
+[[Continue-&gt;endScreen]] </tw-passagedata><tw-passagedata pid="40" name="richRetireEarly" tags="" position="652,3161" size="100,100">You have been set up to retire early for a while now, and you see no value in continuing to work. Your investments will make money for you
 (set: $score to ($score + 10 ))
-[[Continue-&gt;endScreen]] </tw-passagedata><tw-passagedata pid="42" name="richRetire65" tags="" position="800,2863" size="100,100">You have done everything by the book, the way your parents taught you, and can retire generously at 65.
+[[Continue-&gt;endScreen]] </tw-passagedata><tw-passagedata pid="41" name="richRetire65" tags="" position="807,3148" size="100,100">You have done everything by the book, the way your parents taught you, and can retire generously at 65.
 (set: $score to ($score + 20 ))
-[[Continue-&gt;endScreen]] </tw-passagedata></tw-storydata>
+[[Continue-&gt;endScreen]] </tw-passagedata><tw-passagedata pid="42" name="vacationDecision" tags="" position="560,2733" size="100,100">Your work has been stressing you out recently, with meetings that never seem to end and other people’s remarks staying in your head long after you leave the office. You really think that you need a break from your job, though you are not sure if you should take a vacation now when your buisness is so busy.
+(if:$income_class is 1)[[[Just Power Through -&gt;retirementDecision]]]
+(if:$income_class is 2)[
+[[Just power through -&gt;retirementDecision]]
+[[Use up those vacation days that you&#39;ve been saving up-&gt;vacation]]
+]
+(if:$income_class is 3)[
+[[Just Power Through -&gt;retirementDecision]]
+[[I&#39;m probably too important to the company for me to get fired. Off to the Bahamas!-&gt;vacation]]
+]</tw-passagedata><tw-passagedata pid="43" name="vacation" tags="" position="787,2821" size="100,100">(set: $score to ($score + 10 ))
+On a whim, you decide to book a plane ticket to the Bahamas the next weekend. 
+The trip was great, and you didn&#39;t realize how much you needed this break until you lied down down the beach and basked in the Caribbean sun.
+
+
+Upon coming back, you feel rejuvenated and ready to dig into the next problem
+[[Continue-&gt;retirementDecision]] </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
